@@ -1,37 +1,36 @@
 angular.module('randomizer')
-  .controller('RandomizerCtrl', ['$scope', 'CompositionService', function($scope, CompositionService) {
+  .controller('RandomizerCtrl', ['$scope', '$timeout', 'CompositionService', 'Toppings', 'Buns', 'Condiments', function ($scope, $timeout, CompositionService, Toppings, Buns, Condiments) {
     var ctrl = this;
 
-    this.buns = ['gray', 'ciabatta'];
-    this.toppings = ['cheese', 'ham', 'salad'];
-    this.condiments = ['nuts', 'mayonnaise', 'ketchup'];
+    this.buns = Buns.query();
+    this.toppings = Toppings.query();
+    this.condiments = Condiments.query();
+    this.composition;
 
-    this.composition = {};
+    this.randomize = () => { $scope.$broadcast('startSlots'); };
 
-    this.randomize = function() {
-      this.composition = {
-        bun: getRandomValue(this.buns),
-        topping: getRandomValue(this.toppings),
-        condiment: getRandomValue(this.condiments)
-      };
+    this.addTopping = () => { ctrl.composition.toppings.push({}); };
 
-      CompositionService.setComposition(this.composition);
-    };
+    this.addCondiment = () => { ctrl.composition.condiments.push({}); };
+
+    this.removeTopping = () => { if(ctrl.composition.toppings.length > 1) ctrl.composition.toppings.pop(); };
+
+    this.removeCondiment = () => { if(ctrl.composition.condiments.length > 1) ctrl.composition.condiments.pop(); };
 
     $scope.$watch(
-      function() {
-        return CompositionService.getComposition()
-      },
-      function(newVal) {
+      ()=> ctrl.composition,
+      (newVal) => {
+        if (newVal != undefined) {
+          CompositionService.setComposition(newVal);
+        }
+      }
+    );
+
+    $scope.$watch(
+      () => CompositionService.getComposition(),
+      (newVal) => {
         ctrl.composition = newVal;
       }
     );
 
-    function getRandomValue(values){
-      var min = 0;
-      var max = values.length -1;
-      var random = Math.floor(Math.random() * (max - min + 1)) + min;
-
-      return values[random];
-    }
   }]);

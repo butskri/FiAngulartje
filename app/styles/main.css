@@ -21,6 +21,7 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
+
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -42,6 +43,7 @@ body {
     max-width: 730px;
   }
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -51,6 +53,7 @@ body {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
+
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
@@ -60,16 +63,124 @@ body {
 .marketing {
   margin: 40px 0;
 }
+
 .marketing p + h4 {
   margin-top: 28px;
 }
 
-.shoppingcart{
+.shoppingcart {
   height: 25px;
 }
 
 .glyphicon-button {
   cursor: pointer;
+}
+
+.randomizer {
+  width: 80%;
+  border: solid gray 6px;
+  border-radius: 5px;
+  margin-top: 100px;
+  margin-bottom: 15px;
+}
+
+.randomizer .buttonGroup img {
+  width: 10px;
+}
+
+.randomizer .buttonGroup {
+  display: inline-block;
+  width: 20px;
+  vertical-align: top;
+  padding-top: 23px;
+}
+
+.randomizeButton {
+  float: right;
+  margin-top: -220px;
+  margin-right: -94px;
+}
+
+.slots {
+  display: inline-block;
+}
+
+.slot {
+  height: 100px;
+  overflow: hidden;
+  background-color: white;
+  width: 120px;
+  margin-left: 10px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.slot .item {
+  height: 100px;
+}
+
+.slot .item img {
+  width: 120px;
+}
+
+.locked {
+  opacity: 0.5;
+}
+
+.slotContainer {
+  text-align: center;
+}
+
+.slotGroup {
+  text-align: center;
+  background-color: rgba(255,255,0,0.2);
+  padding: 10px;
+}
+
+.slot-arm-animate {
+  width: 88px;
+  height: 213px;
+  background-image: url("../images/handle.png");
+
+  -webkit-animation: play .7s steps(10) 1;
+  -moz-animation: play .7s steps(10) 1;
+  -ms-animation: play .7s steps(10) 1;
+  -o-animation: play .7s steps(10) 1;
+  animation: play .7s steps(10) 1;
+}
+
+.slot-arm {
+  width: 88px;
+  height: 213px;
+  background-image: url("../images/handle.png");
+  background-size: 880px 213px;
+  cursor: pointer;
+}
+
+@-webkit-keyframes play {
+  from { background-position:    0px; }
+  to { background-position: -880px; }
+}
+
+@-moz-keyframes play {
+  from { background-position:    0px; }
+  to { background-position: -880px; }
+}
+
+@-ms-keyframes play {
+  from { background-position:    0px; }
+  to { background-position: -880px; }
+}
+
+@-o-keyframes play {
+  from { background-position:    0px; }
+  to { background-position: -880px; }
+}
+
+@keyframes play {
+  from { background-position:    0px; }
+  to { background-position: -880px; }
 }
 
 /* Responsive: Portrait tablets and up */
@@ -81,10 +192,12 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
+
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
   }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;

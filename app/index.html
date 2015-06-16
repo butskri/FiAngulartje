@@ -44,6 +44,7 @@
             <li><a ng-href="#/menu">Menu</a></li>
             <li><a ng-href="#/contact">Contact</a></li>
             <li><a ng-href="#/about">About</a></li>
+            <li><a ng-href="#/randomize">Randomize</a></li>
             <li ng-hide="shoppingCartIsEmpty()"><a ng-href="#/shoppingCart"><img src="images/shoppingCart.png" class="shoppingcart" /></a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right language-toggle">
@@ -113,6 +114,7 @@
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/ngDialog/js/ngDialog.js"></script>
 <script src="bower_components/ngstorage/ngStorage.js"></script>
+<script src="bower_components/jquery-slotmachine/dist/jquery.slotmachine.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -135,8 +137,18 @@
 <script src="scripts/directives/openinghours.js"></script>
 <script src="scripts/directives/shoppingcart.js"></script>
 <script src="scripts/services/CompositionService.js"></script>
-<script src="scripts/randomizer/controllers/RandomizerCtrl.js"></script>
+<script src="scripts/randomizer/controllers/randomizerCtrl.js"></script>
 <script src="scripts/randomizer/directives/randomizerDirective.js"></script>
+<script src="scripts/randomizer/directives/slotDirective.js"></script>
+<script src="scripts/randomizer/directives/slotArmDirective.js"></script>
+<script src="scripts/directives/placeorder.js"></script>
+<script src="scripts/controllers/placeOrder.js"></script>
+<script src="scripts/services/PlaceOrder.js"></script>
+<script src="scripts/services/Toppings.js"></script>
+<script src="scripts/services/Buns.js"></script>
+<script src="scripts/services/Condiments.js"></script>
+<script src="scripts/filters/filters.js"></script>
+<script src="scripts/services/LockingService.js"></script>
 <!-- endbuild -->
 </body>
 </html>
